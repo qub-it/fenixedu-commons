@@ -6,15 +6,21 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 public class FontWeight extends CellStyle {
 
-    private final short boldweight;
+    static final short BOLDWEIGHT_BOLD = 0x2bc;
+
+    private final boolean boldweight;
 
     public FontWeight(short boldweight) {
-        this.boldweight = boldweight;
+        this.boldweight = boldweight == BOLDWEIGHT_BOLD;
+    }
+
+    public FontWeight(boolean isBold) {
+        this.boldweight = isBold;
     }
 
     @Override
     protected void appendToStyle(HSSFWorkbook book, HSSFCellStyle style, HSSFFont font) {
-        font.setBoldweight(boldweight);
+        font.setBold(boldweight);
     }
 
     @Override
@@ -37,6 +43,6 @@ public class FontWeight extends CellStyle {
 
     @Override
     public int hashCode() {
-        return boldweight;
+        return boldweight ? BOLDWEIGHT_BOLD : Boolean.hashCode(boldweight);
     }
 }

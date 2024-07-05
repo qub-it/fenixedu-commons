@@ -21,7 +21,7 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
-import org.apache.poi.ss.usermodel.RichTextString;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.fenixedu.commons.i18n.LocalizedString;
 import org.fenixedu.commons.spreadsheet.SheetData.Cell;
@@ -73,14 +73,14 @@ class ExcelBuilder extends AbstractSheetBuilder {
 
     private static CellStyle HEADER_STYLE = new ComposedCellStyle() {
         {
-            merge(new FontColor(new HSSFColor.BLACK()));
-            merge(new FontWeight(HSSFFont.BOLDWEIGHT_BOLD));
+            merge(new FontColor(HSSFColor.HSSFColorPredefined.BLACK.getColor()));
+            merge(new FontWeight(true));
             merge(new FontHeight((short) 8));
-            merge(new CellAlignment(HSSFCellStyle.ALIGN_CENTER));
-            merge(new CellFillForegroundColor(new HSSFColor.GREY_25_PERCENT()));
-            merge(new CellFillPattern(HSSFCellStyle.SOLID_FOREGROUND));
-            merge(new CellBorder(HSSFCellStyle.BORDER_THIN));
-            merge(new CellVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER));
+            merge(new CellAlignment(HorizontalAlignment.CENTER.getCode()));
+            merge(new CellFillForegroundColor(HSSFColor.HSSFColorPredefined.GREY_25_PERCENT.getColor()));
+            merge(new CellFillPattern(FillPatternType.SOLID_FOREGROUND.getCode()));
+            merge(new CellBorder(BorderStyle.THIN.getCode()));
+            merge(new CellVerticalAlignment(VerticalAlignment.CENTER.getCode()));
             merge(new CellWrapText(true));
         }
     };

@@ -3,6 +3,7 @@ package org.fenixedu.commons.spreadsheet.styles;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.BorderStyle;
 
 public class CellBorder extends CellStyle {
 
@@ -20,10 +21,10 @@ public class CellBorder extends CellStyle {
 
     @Override
     protected void appendToStyle(HSSFWorkbook book, HSSFCellStyle style, HSSFFont font) {
-        style.setBorderBottom(borderBottom);
-        style.setBorderLeft(borderLeft);
-        style.setBorderRight(borderRight);
-        style.setBorderTop(borderTop);
+        style.setBorderBottom(BorderStyle.valueOf(borderBottom));
+        style.setBorderLeft(BorderStyle.valueOf(borderLeft));
+        style.setBorderRight(BorderStyle.valueOf(borderRight));
+        style.setBorderTop(BorderStyle.valueOf(borderTop));
     }
 
     @Override

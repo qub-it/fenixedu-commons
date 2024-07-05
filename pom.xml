@@ -8,6 +8,7 @@
         <version>2.0.0</version>
     </parent>
 
+    <groupId>org.fenixedu</groupId>	
     <artifactId>fenixedu-commons</artifactId>
     <version>1.1.2-FORK</version>
     <name>FenixEdu Toolkit</name>
@@ -17,7 +18,7 @@
         <version.com.google.guava.guava>17.0</version.com.google.guava.guava>
         <version.javax.servlet.javax.servlet.api>3.0.1</version.javax.servlet.javax.servlet.api>
         <version.joda.time>2.3</version.joda.time>
-        <version.org.apache.poi.poi>3.11</version.org.apache.poi.poi>
+        <version.org.apache.poi.poi>5.2.5</version.org.apache.poi.poi>
     </properties>
 
     <scm>

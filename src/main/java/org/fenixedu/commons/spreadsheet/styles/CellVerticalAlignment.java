@@ -3,6 +3,7 @@ package org.fenixedu.commons.spreadsheet.styles;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.VerticalAlignment;
 
 public class CellVerticalAlignment extends CellStyle {
 
@@ -14,7 +15,7 @@ public class CellVerticalAlignment extends CellStyle {
 
     @Override
     protected void appendToStyle(HSSFWorkbook book, HSSFCellStyle style, HSSFFont font) {
-        style.setVerticalAlignment(align);
+        style.setVerticalAlignment(VerticalAlignment.forInt(align));
     }
 
     @Override

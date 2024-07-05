@@ -6,8 +6,9 @@ import org.apache.poi.hssf.usermodel.HSSFPrintSetup;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.hssf.util.CellReference;
-import org.apache.poi.hssf.util.HSSFCellUtil;
+import org.apache.poi.ss.usermodel.BorderStyle;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.util.CellReference;
 import org.joda.time.DateTime;
 import org.joda.time.Duration;
 import org.joda.time.LocalDate;
@@ -310,11 +311,12 @@ public class StyledExcelSpreadsheet {
     }
 
     protected void setCellBorder(HSSFCell cell) {
-        final short borderProperty = HSSFCellStyle.BORDER_THIN;
-        HSSFCellUtil.setCellStyleProperty(cell, workbook, "borderLeft", borderProperty);
-        HSSFCellUtil.setCellStyleProperty(cell, workbook, "borderRight", borderProperty);
-        HSSFCellUtil.setCellStyleProperty(cell, workbook, "borderTop", borderProperty);
-        HSSFCellUtil.setCellStyleProperty(cell, workbook, "borderBottom", borderProperty);
+        CellStyle style = workbook.createCellStyle();
+        style.setBorderTop(BorderStyle.THIN);
+        style.setBorderBottom(BorderStyle.THIN);
+        style.setBorderLeft(BorderStyle.THIN);
+        style.setBorderRight(BorderStyle.THIN);
+        cell.setCellStyle(style);
     }
 
     public void setRegionBorder(int firstRow, int lastRow, int firstColumn, int lastColumn) {
