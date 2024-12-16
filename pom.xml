@@ -13,10 +13,21 @@
     <version>2.1.0-FORK</version>
     <name>FenixEdu Toolkit</name>
 
+    <dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.qubit.solution.fenixedu</groupId>
+				<artifactId>fenixedu-oss-dependency-management</artifactId>
+				<version>331</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
     <properties>
         <version.com.google.code.gson.gson>2.2.4</version.com.google.code.gson.gson>
         <version.com.google.guava.guava>33.2.1-jre</version.com.google.guava.guava>
-        <version.javax.servlet.javax.servlet.api>3.0.1</version.javax.servlet.javax.servlet.api>
         <version.joda.time>2.3</version.joda.time>
         <version.org.apache.poi.poi>5.2.5</version.org.apache.poi.poi>
     </properties>
@@ -32,7 +43,6 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>${version.javax.servlet.javax.servlet.api}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
