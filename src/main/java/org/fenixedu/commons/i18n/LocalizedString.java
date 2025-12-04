@@ -46,31 +46,31 @@ import com.google.gson.JsonObject;
  * immutable to work as a value type in the domain. Content is fetched passing the {@link Locale} on which we intend to view the
  * text, the text returned is the closest possible translation.
  * </p>
- * 
+ *
  * <h3>Creating/Modifying Content</h3>
- * 
+ *
  * <p>
  * Construction and modifications are done using the {@link Builder} class.
  * </p>
- * 
+ *
  * <p>
  * Example:
- * 
+ *
  * <pre>
  * <code>
  * new LocalizedString.Builder().with(Locale.ENGLISH, "hello")
  *     .with(Locale.forLanguageTag("pt-PT"), "bom dia").build();
  * </code>
  * </pre>
- * 
+ *
  * </p>
- * 
+ *
  * <h3>Accessing Content</h3>
- * 
+ *
  * <p>
  * Access is done invoking {@link #getContent()} or {@link #getContent(Locale)}
  * </p>
- * 
+ *
  */
 public final class LocalizedString implements Serializable, Comparable<LocalizedString> {
     private static final long serialVersionUID = -31967064113338779L;
@@ -157,7 +157,7 @@ public final class LocalizedString implements Serializable, Comparable<Localized
      * Builders are created empty with {@link #Builder()} or created from an existing {@link LocalizedString} with
      * {@link LocalizedString#builder()}.
      * </p>
-     * 
+     *
      * <p>
      * Several flow language modifiers are available to work with the builder:
      * <ul>
@@ -169,7 +169,7 @@ public final class LocalizedString implements Serializable, Comparable<Localized
      * <li>{@link Builder#append(String, String)}</li>
      * </ul>
      * </p>
-     * 
+     *
      * <p>
      * At the end, invoke {@link Builder#build()} to obtain the corresponding {@link LocalizedString}
      * </p>
@@ -190,11 +190,11 @@ public final class LocalizedString implements Serializable, Comparable<Localized
 
         /**
          * Sets/changes the translation of the given locale to the given text.
-         * 
+         *
          * @param locale {@link Locale} on which to set the translated text.
          * @param content The translated text.
          * @return The builder instance with the content changed.
-         * 
+         *
          * @see {@link #without(Locale)}
          */
         public Builder with(Locale locale, String content) {
@@ -211,10 +211,10 @@ public final class LocalizedString implements Serializable, Comparable<Localized
 
         /**
          * Removes the translation of the given locale.
-         * 
+         *
          * @param locale {@link Locale} from which to remove a translation.
          * @return The builder instance with the content changed.
-         * 
+         *
          * @see {@link #with(Locale, String)}
          */
         public Builder without(Locale locale) {
@@ -224,10 +224,10 @@ public final class LocalizedString implements Serializable, Comparable<Localized
 
         /**
          * Appends the given Localized string at the end.
-         * 
+         *
          * @param string the {@link LocalizedString} to append
          * @return The builder instance with the content changed.
-         * 
+         *
          * @see {@link #append(LocalizedString, String)}, {@link #append(String)}
          */
         public Builder append(LocalizedString string) {
@@ -236,7 +236,7 @@ public final class LocalizedString implements Serializable, Comparable<Localized
 
         /**
          * Appends the given Localized string at the end, including a separator string between.
-         * 
+         *
          * @param string the {@link LocalizedString} to append
          * @param separator string to be placed between the contents
          * @return The builder instance with the content changed.
@@ -250,7 +250,7 @@ public final class LocalizedString implements Serializable, Comparable<Localized
 
         /**
          * Appends the given string at the end.
-         * 
+         *
          * @param string the string to append
          * @return The builder instance with the content changed.
          */
@@ -260,7 +260,7 @@ public final class LocalizedString implements Serializable, Comparable<Localized
 
         /**
          * Appends the given string at the end, including a separator string between.
-         * 
+         *
          * @param string the string to append
          * @param separator string to be placed between the contents
          * @return The builder instance with the content changed.
@@ -274,7 +274,7 @@ public final class LocalizedString implements Serializable, Comparable<Localized
 
         /**
          * Builds an {@link LocalizedString} from the builder state.
-         * 
+         *
          * @return the corresponding {@link LocalizedString}.
          */
         public LocalizedString build() {
@@ -293,7 +293,7 @@ public final class LocalizedString implements Serializable, Comparable<Localized
 
     /**
      * Creates an {@link LocalizedString} initialised with the given translation.
-     * 
+     *
      * @param locale {@link Locale} of the translation.
      * @param content translated text.
      */
@@ -307,7 +307,7 @@ public final class LocalizedString implements Serializable, Comparable<Localized
 
     /**
      * Create a {@link Builder} initialised with the translation of this instance.
-     * 
+     *
      * @return the {@link Builder} instance.
      */
     public Builder builder() {
@@ -316,7 +316,7 @@ public final class LocalizedString implements Serializable, Comparable<Localized
 
     /**
      * Same as <code>builder().with(locale, content).build()</code>. Does not change current instance.
-     * 
+     *
      * @param locale {@link Locale} of the translation.
      * @param content translated text.
      * @return {@link LocalizedString} instance with the added translation.
@@ -328,7 +328,7 @@ public final class LocalizedString implements Serializable, Comparable<Localized
 
     /**
      * Same as <code>builder().without(locale).build()</code>. Does not change current instance.
-     * 
+     *
      * @param locale {@link Locale} to remove.
      * @return {@link LocalizedString} instance with the translation removed.
      * @see {@link Builder#without(Locale)}
@@ -339,7 +339,7 @@ public final class LocalizedString implements Serializable, Comparable<Localized
 
     /**
      * Same as <code>builder().append(string).build()</code>. Does not change current instance.
-     * 
+     *
      * @param string the {@link LocalizedString} to append
      * @return {@link LocalizedString} instance with the appended content.
      * @see {@link Builder#append(LocalizedString)}
@@ -350,7 +350,7 @@ public final class LocalizedString implements Serializable, Comparable<Localized
 
     /**
      * Same as <code>builder().append(string, separator).build()</code>. Does not change current instance.
-     * 
+     *
      * @param string the {@link LocalizedString} to append
      * @param separator string to be placed between the contents
      * @return {@link LocalizedString} instance with the appended content.
@@ -362,7 +362,7 @@ public final class LocalizedString implements Serializable, Comparable<Localized
 
     /**
      * Same as <code>builder().append(string).build()</code>. Does not change current instance.
-     * 
+     *
      * @param string the string to append
      * @return {@link LocalizedString} instance with the appended content.
      * @see {@link Builder#append(String)}
@@ -373,7 +373,7 @@ public final class LocalizedString implements Serializable, Comparable<Localized
 
     /**
      * Same as <code>builder().append(string, separator).build()</code>. Does not change current instance.
-     * 
+     *
      * @param string the string to append
      * @param separator string to be placed between the contents
      * @return {@link LocalizedString} instance with the appended content.
@@ -385,7 +385,7 @@ public final class LocalizedString implements Serializable, Comparable<Localized
 
     /**
      * Locales of the tanslations present in this {@link LocalizedString}
-     * 
+     *
      * @return {@link Set} of {@link Locale}s.
      */
     public Set<Locale> getLocales() {
@@ -394,7 +394,7 @@ public final class LocalizedString implements Serializable, Comparable<Localized
 
     /**
      * Performs the given action for every key-value pair in this localized string.
-     * 
+     *
      * @param action
      *            The action to be performed for each element
      * @throws NullPointerException
@@ -409,12 +409,12 @@ public final class LocalizedString implements Serializable, Comparable<Localized
 
     /**
      * Returns whether any value in this string matches the given predicate.
-     * 
+     *
      * May not evaluate all values, if not necessary to determine the result.
-     * 
+     *
      * @param predicate
      *            The predicate to apply to the values of this string.
-     * 
+     *
      * @return {@code true} if any value of the string matches the provided
      *         predicate, {@code false} otherwise.
      */
@@ -425,7 +425,7 @@ public final class LocalizedString implements Serializable, Comparable<Localized
     /**
      * Returns the translation for the given locale (as per {@link #getContent(Locale)}), returning the provided default value if
      * no translation is found.
-     * 
+     *
      * @param locale
      *            The locale to fetch
      * @param defaultValue
@@ -441,7 +441,7 @@ public final class LocalizedString implements Serializable, Comparable<Localized
     /**
      * Returns a new {@link LocalizedString}, with the values provided by applying this string's values on the provided mapping
      * function.
-     * 
+     *
      * @param mappingFunction
      *            The function to apply to every value of this string
      * @return
@@ -457,7 +457,7 @@ public final class LocalizedString implements Serializable, Comparable<Localized
         }
         return builder.build();
     }
-
+    
     /**
      * Accesses the translation corresponding to the given {@link Locale}. The result is the best possible approximation, as
      * follows:
@@ -469,7 +469,7 @@ public final class LocalizedString implements Serializable, Comparable<Localized
      * requested: en-US, existing: en-GB;</li>
      * <li>Returns the translation for the thread's {@link Locale} if exists, otherwise null is returned.</li>
      * </ul>
-     * 
+     *
      * @param locale the {@link Locale} to fetch.
      * @return the best possible translation, can be null.
      */
@@ -479,9 +479,9 @@ public final class LocalizedString implements Serializable, Comparable<Localized
 
     /**
      * Accesses a translation for this string.
-     * 
+     *
      * The resulting locale is the best possible aproximation as follows:
-     * 
+     *
      * <ul>
      * <li>If there is a translation for the thread's {@link Locale} (as returned by {@link LocalizedString#getContent(Locale)}),
      * return it.</li>
@@ -490,7 +490,7 @@ public final class LocalizedString implements Serializable, Comparable<Localized
      * <li>
      * If there is any value in this {@link LocalizedString}, return it. Otherwise return null.</li>
      * </ul>
-     * 
+     *
      * @return the best possible translation, can be null.
      * @see {@link #getContent(Locale)}
      */
@@ -514,7 +514,7 @@ public final class LocalizedString implements Serializable, Comparable<Localized
 
     /**
      * Serialise to json.
-     * 
+     *
      * @return the corresponding {@link JsonElement} instance.
      * @see {@link #fromJson(JsonElement)}
      */
@@ -524,7 +524,7 @@ public final class LocalizedString implements Serializable, Comparable<Localized
 
     /**
      * Import from json.
-     * 
+     *
      * @param json the {@link JsonElement} in the same format returned by {@link #json()}.
      * @return the {@link LocalizedString} parsed from json.
      * @see {@link #json()}
@@ -540,8 +540,8 @@ public final class LocalizedString implements Serializable, Comparable<Localized
 
     @Override
     public int compareTo(LocalizedString other) {
-        return Collator.getInstance(I18N.getLocale()).compare(isEmpty() ? "" : getContent(),
-                other.isEmpty() ? "" : other.getContent());
+        return Collator.getInstance(I18N.getLocale())
+                .compare(isEmpty() ? "" : getContent(), other.isEmpty() ? "" : other.getContent());
     }
 
     @Override
