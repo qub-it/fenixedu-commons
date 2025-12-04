@@ -1,3 +1,5 @@
+- Improvement: Adds API to look for alternative on LocalizedString [#ISCTE-FENIXEDU-1356]
+
 2.1.0-FORK (02-09-2024)
 - Improvement: Ensures Release Notes is in the jar [#qubIT-Omnis-6579]
 - Improvement: Updates guava from 21.0 to 33.2.1-jre [#qubIT-Omnis-5869]
