@@ -32,6 +32,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -80,9 +81,11 @@ public final class LocalizedString implements Serializable, Comparable<Localized
     protected static final class InternalMap extends HashMap<Locale, String> {
         private static final long serialVersionUID = -2722162618911116061L;
 
-        public String getContent(Locale locale) {
+        public String getContent(Locale locale, boolean lookForAlternative) {
             if (containsKey(locale)) {
                 return get(locale);
+            } else if (!lookForAlternative) {
+                return StringUtils.EMPTY;
             }
             // Best effort strategy inspired on ResourceBundle behaviour
             Locale generic = generifyLocale(locale);
@@ -122,6 +125,10 @@ public final class LocalizedString implements Serializable, Comparable<Localized
                 return getContent(I18N.getLocale());
             }
             return null;
+        }
+
+        public String getContent(Locale locale) {
+            return getContent(locale, true);
         }
 
         private Locale generifyLocale(Locale locale) {
@@ -474,7 +481,11 @@ public final class LocalizedString implements Serializable, Comparable<Localized
      * @return the best possible translation, can be null.
      */
     public String getContent(Locale locale) {
-        return map.getContent(locale);
+        return getContent(locale, true);
+    }
+
+    public String getContent(Locale locale, boolean lookForAlternative) {
+        return map.getContent(locale, lookForAlternative);
     }
 
     /**
