@@ -1,3 +1,4 @@
+- Refactor: Migrate from javaee to jakarta [#qubIT-Omnis-10960]
 2.2.0-FORK (09-12-2025)
 - Improvement: Adds API to look for alternative on LocalizedString [#ISCTE-FENIXEDU-1356]
 
