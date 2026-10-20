@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.qubit.solution.fenixedu.build</groupId>
         <artifactId>qub-fenixedu-project</artifactId>
-        <version>2.2.1</version>
+        <version>3.0.0</version>
     </parent>
 
     <groupId>org.fenixedu</groupId>	
@@ -16,7 +16,7 @@
     <properties>
         <version.com.google.code.gson.gson>2.2.4</version.com.google.code.gson.gson>
         <version.com.google.guava.guava>33.2.1-jre</version.com.google.guava.guava>
-        <version.javax.servlet.javax.servlet.api>3.0.1</version.javax.servlet.javax.servlet.api>
+        <version.jakarta.servlet.jakarta.servlet.api>6.0.0</version.jakarta.servlet.jakarta.servlet.api>
         <version.joda.time>2.3</version.joda.time>
         <version.org.apache.poi.poi>5.2.5</version.org.apache.poi.poi>
     </properties>
@@ -30,9 +30,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>${version.javax.servlet.javax.servlet.api}</version>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>${version.jakarta.servlet.jakarta.servlet.api}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

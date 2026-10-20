@@ -20,7 +20,7 @@ package org.fenixedu.commons.i18n;
 
 import java.util.Locale;
 
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
