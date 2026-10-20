@@ -10,7 +10,7 @@
 
     <groupId>org.fenixedu</groupId>	
     <artifactId>fenixedu-commons</artifactId>
-    <version>2.2.0-FORK</version>
+    <version>3.0.0-FORK</version>
     <name>FenixEdu Toolkit</name>
 
     <properties>
