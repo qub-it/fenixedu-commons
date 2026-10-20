@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.qubit.solution.fenixedu.build</groupId>
         <artifactId>qub-fenixedu-project</artifactId>
-        <version>2.2.2</version>
+        <version>3.0.0</version>
     </parent>
 
     <groupId>org.fenixedu</groupId>	
@@ -16,7 +16,7 @@
     <properties>
         <version.com.google.code.gson.gson>2.2.4</version.com.google.code.gson.gson>
         <version.com.google.guava.guava>33.2.1-jre</version.com.google.guava.guava>
-        <version.jakarta.servlet.jakarta.servlet.api>6.1.0</version.jakarta.servlet.jakarta.servlet.api>
+        <version.jakarta.servlet.jakarta.servlet.api>6.0.0</version.jakarta.servlet.jakarta.servlet.api>
         <version.joda.time>2.3</version.joda.time>
         <version.org.apache.poi.poi>5.2.5</version.org.apache.poi.poi>
     </properties>
